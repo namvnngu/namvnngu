@@ -1,0 +1,13 @@
+{
+  "category": ["package"],
+  "db": [
+    {
+      "name": "JavaPackage.sh",
+      "file": "sh",
+      "category": "package",
+      "description": "A sample of packaging java appliaction on MacOS",
+      "source": "https://github.com/jdah/microcraft/blob/master/package.sh",
+      "link": "https://raw.githubusercontent.com/nnfunny/code-snippet/main/sh/package/JavaPackage.sh"
+    }
+  ]
+}

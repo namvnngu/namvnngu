@@ -1,0 +1,13 @@
+{
+  "category": ["package"],
+  "db": [
+    {
+      "name": "JavaPackage.bat",
+      "file": "bat",
+      "category": "package",
+      "description": "A sample of packaging java appliaction on Windows",
+      "source": "https://github.com/jdah/microcraft/blob/master/package.bat",
+      "link": "https://raw.githubusercontent.com/nnfunny/code-snippet/main/bat/package/JavaPackage.bat"
+    }
+  ]
+}
