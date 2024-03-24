@@ -1,4 +1,4 @@
-# Description: A sample of packaging java appliaction on MacOS
+# Description: A sample of packaging java application on MacOS
 # Source: https://github.com/jdah/microcraft/blob/master/package.sh
 # Date: 08/04/2021
 

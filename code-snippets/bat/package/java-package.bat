@@ -1,4 +1,4 @@
-:: Description: A sample of packaging java appliaction on Windows
+:: Description: A sample of packaging java application on Windows
 :: Source: https://github.com/jdah/microcraft/blob/master/package.bat
 :: Date: 08/04/2021
 
