@@ -2,7 +2,7 @@
 
 <img align="right" width="160" src="logo.svg"/></p>
 
-The Code Snippet repository consists of code blocks that I collected or searched from the internet while finding solutions for my problems, watching tutorials, and reading tech articles. 🌺
+This folder consists of code blocks that I collected or searched from the internet while finding solutions for my problems, watching tutorials, and reading tech articles. 🌺
 
 The file should include the following comment (e.g. python file):
 ```py
