@@ -9,7 +9,7 @@
 - [code-snippets](https://github.com/namvnngu/namvnngu/tree/main/code-snippets): my code hunting
 - [diagrams](https://github.com/namvnngu/namvnngu/tree/main/diagrams): my art xD
 - [experiments](https://github.com/namvnngu/namvnngu/tree/main/experiments): my playground
-- [ideas](https://github.com/namvnngu/namvnngu/tree/main/ideas): my "shower ideas"
+- [ideas](https://github.com/namvnngu/namvnngu/tree/main/ideas): my "shower ideas" (just small, fun and simple ones)
 
 <!--  #### 🖥 Daily used technologies at work
 ![React](https://img.shields.io/badge/-React-61DAFB?&&logo=React&logoColor=black)
