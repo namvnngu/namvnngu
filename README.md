@@ -4,6 +4,8 @@
 - 📟 A Neovim/Vim enthusiast.
 - 👔 At work, I use [React](https://react.dev), [Typescript](https://www.typescriptlang.org) and a bit [.NET](https://dotnet.microsoft.com).
 - 🏡 At home, I'm learning [C](https://en.wikipedia.org/wiki/C_(programming_language)) and [Computer Graphics](https://en.wikipedia.org/wiki/Computer_graphics).
+- 📚 I’m currently learning new things every day.
+- 🤝 I’m looking to collaborate on any interesting projects.
 
 ▲ This intro is in [a monorepo](https://github.com/namvnngu/namvnngu) of my random things:
 - [code-snippets](https://github.com/namvnngu/namvnngu/tree/main/code-snippets): my code hunting
