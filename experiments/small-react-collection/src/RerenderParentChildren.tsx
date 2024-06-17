@@ -9,7 +9,7 @@ export function RerenderParentChildren() {
   );
 }
 
-const Parent = (props: React.PropsWithChildren) => {
+function Parent(props: React.PropsWithChildren) {
   console.log("Parent re-rendder");
 
   const [counter, setCounter] = React.useState(0);
@@ -20,10 +20,10 @@ const Parent = (props: React.PropsWithChildren) => {
       {props.children}
     </>
   );
-};
+}
 
-const Child = () => {
+function Child() {
   console.log("Child re-rendder");
 
   return <div>Child</div>;
-};
+}
