@@ -1,12 +1,15 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
+import { Close } from "./Close";
 import { Button } from "./Button";
+import { ListItem } from "./ListItem";
 import { AnimatedNumberApp } from "./AnimatedNumber";
 import { RerenderParentChildren } from "./RerenderParentChildren";
 import { RerenderContextConsumersFromSameContext } from "./RerenderContextConsumersFromSameContext";
 import { RerenderContextConsumersFromDifferentContexts } from "./RerenderContextConsumersFromDifferentContexts";
 
-const examples: Array<{ name: string; component: React.FunctionComponent }> = [
+const EXAMPLES: Array<{ name: string; component: React.FunctionComponent }> = [
   {
     name: "Animated Number",
     component: AnimatedNumberApp,
@@ -28,25 +31,13 @@ const examples: Array<{ name: string; component: React.FunctionComponent }> = [
 export default function App() {
   const [selected, setSelected] = React.useState(0);
 
-  const Example = examples[selected]?.component;
+  const Example = EXAMPLES[selected]?.component;
 
   return (
     <div className="container mx-auto p-8">
       <header>
-        <ul className="flex flex-wrap gap-2">
-          {examples.map((e, index) => (
-            <li key={e.name}>
-              <Button
-                theme={selected === index ? "dark" : "light"}
-                onClick={() => setSelected(index)}
-              >
-                {e.name}
-              </Button>
-            </li>
-          ))}
-        </ul>
+        <Menu selected={selected} onSelect={setSelected} />
       </header>
-
       <main className="mt-8">
         {Example ? (
           <Example />
@@ -55,5 +46,44 @@ export default function App() {
         )}
       </main>
     </div>
+  );
+}
+
+function Menu(props: {
+  selected: number;
+  onSelect: (index: number) => void;
+}) {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <>
+      <Button theme="dark" onClick={() => setOpen(true)}>
+        Menu
+      </Button>
+      {open ? (
+        <>
+          {ReactDOM.createPortal(
+            <div className="absolute top-0 left-0 space-y-2 min-w-64 h-screen border-e bg-white px-4 py-6">
+              <Close className="block ml-auto" onClick={() => setOpen(false)} />
+              <ul className="space-y-1">
+                {EXAMPLES.map((e, index) => (
+                  <ListItem
+                    key={e.name}
+                    active={index === props.selected}
+                    onClick={() => {
+                      props.onSelect?.(index);
+                      setOpen(false);
+                    }}
+                  >
+                    {e.name}
+                  </ListItem>
+                ))}
+              </ul>
+            </div>,
+            document.body,
+          )}
+        </>
+      ) : null}
+    </>
   );
 }
