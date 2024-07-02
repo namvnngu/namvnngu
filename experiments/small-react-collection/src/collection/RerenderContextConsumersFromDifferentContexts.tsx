@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./Button";
+import { Button } from "../components/Button";
 
 export function RerenderContextConsumersFromDifferentContexts() {
   return (
@@ -14,6 +14,8 @@ export function RerenderContextConsumersFromDifferentContexts() {
     </ContextProviderA>
   );
 }
+
+/*****************************************************************************/
 
 type Context = {
   count: number;
@@ -37,6 +39,8 @@ function ButtonA() {
   console.log("Button A re-render");
   return <Button onClick={() => setCount((c) => ++c)}>A: {count}</Button>;
 }
+
+/*****************************************************************************/
 
 const ContextB = React.createContext<Context>({
   count: 0,

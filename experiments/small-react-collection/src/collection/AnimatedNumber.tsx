@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./Button";
+import { Button } from "../components/Button";
 
 const INCREMENTS = [0.01, 0.1, 1, 10, 100, 999, 1234.56];
 const COMMON_ANIMATED_NUMBER_DEMO_CLASS_NAME =
@@ -35,7 +35,7 @@ export function AnimatedNumberApp() {
   );
 }
 
-/******************************************************************************/
+/*****************************************************************************/
 
 const decimalNumberFormatter = new Intl.NumberFormat(undefined, {
   style: "decimal",
@@ -57,7 +57,7 @@ function AnimatedNumber(props: { number: number }) {
   );
 }
 
-/******************************************************************************/
+/*****************************************************************************/
 
 const commonAnimatedDigitStyle = {
   lineHeight: 1,

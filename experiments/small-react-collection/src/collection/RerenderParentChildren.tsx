@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./Button";
+import { Button } from "../components/Button";
 
 export function RerenderParentChildren() {
   return (
@@ -8,6 +8,8 @@ export function RerenderParentChildren() {
     </Parent>
   );
 }
+
+/*****************************************************************************/
 
 function Parent(props: React.PropsWithChildren) {
   console.log("Parent re-rendder");
