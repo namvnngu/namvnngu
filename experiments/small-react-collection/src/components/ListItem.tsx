@@ -1,11 +1,16 @@
 import React from "react";
+
 import { classes } from "../utils";
+
+/* ------------------------------------------------------------------------- */
+
+const LIST_ITEM_NAME = "ListItem";
 
 type ListItemProps = React.ComponentPropsWithoutRef<"li"> & {
   active?: boolean;
 };
 
-export function ListItem(props: ListItemProps) {
+const ListItem: React.FC<ListItemProps> = (props) => {
   const className = classes(
     props.active
       ? "block cursor-pointer rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
@@ -17,4 +22,11 @@ export function ListItem(props: ListItemProps) {
       {props.children}
     </li>
   );
-}
+};
+
+ListItem.displayName = LIST_ITEM_NAME;
+
+/* ------------------------------------------------------------------------- */
+
+export { ListItem };
+export type { ListItemProps };

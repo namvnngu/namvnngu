@@ -1,4 +1,7 @@
-export function classes(
+import type { Color } from "./types";
+import { COLORS } from "./constants";
+
+function classes(
   ...classNames: (string | undefined | null)[]
 ): string | undefined {
   let result = "";
@@ -17,3 +20,9 @@ export function classes(
 
   return result ? result : undefined;
 }
+
+function getRandomColor(): Color {
+  return COLORS[Math.floor(Math.random() * COLORS.length)];
+}
+
+export { classes, getRandomColor };

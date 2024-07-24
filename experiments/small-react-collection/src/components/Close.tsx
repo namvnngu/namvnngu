@@ -1,9 +1,14 @@
 import React from "react";
+
 import { classes } from "../utils";
+
+/* ------------------------------------------------------------------------- */
+
+const CLOSE_NAME = "Close";
 
 type CloseProps = React.ComponentPropsWithoutRef<"button">;
 
-export function Close(props: CloseProps) {
+const Close: React.FC<CloseProps> = (props) => {
   return (
     <button
       {...props}
@@ -27,4 +32,11 @@ export function Close(props: CloseProps) {
       </svg>
     </button>
   );
-}
+};
+
+Close.displayName = CLOSE_NAME;
+
+/* ------------------------------------------------------------------------- */
+
+export { Close };
+export type { CloseProps };

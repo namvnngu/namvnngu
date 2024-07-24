@@ -1,11 +1,17 @@
 import React from "react";
+
 import { Theme } from "../types";
 import { classes } from "../utils";
+
+/* ------------------------------------------------------------------------- */
+
+const BUTTON_NAME = "Button";
 
 type ButtonProps = React.ComponentPropsWithoutRef<"button"> & {
   theme?: Theme;
 };
-export function Button(props: ButtonProps) {
+
+const Button: React.FC<ButtonProps> = (props) => {
   const themeClassName = (function () {
     switch (props.theme) {
       case "dark":
@@ -19,4 +25,11 @@ export function Button(props: ButtonProps) {
       {props.children}
     </button>
   );
-}
+};
+
+Button.displayName = BUTTON_NAME;
+
+/* ------------------------------------------------------------------------- */
+
+export { Button };
+export type { ButtonProps };

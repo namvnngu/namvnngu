@@ -4,11 +4,15 @@ import ReactDOM from "react-dom";
 import { Close } from "./Close";
 import { Button } from "./Button";
 
+/* ------------------------------------------------------------------------- */
+
+const MENU_NAME = "Menu";
+
 type MenuProps = {
   children: (props: { onClose: () => void }) => React.ReactElement;
 };
 
-export function Menu(props: MenuProps) {
+const Menu: React.FC<MenuProps> = (props) => {
   const [open, setOpen] = React.useState(false);
 
   const onClose = () => {
@@ -33,4 +37,11 @@ export function Menu(props: MenuProps) {
       ) : null}
     </>
   );
-}
+};
+
+Menu.displayName = MENU_NAME;
+
+/* ------------------------------------------------------------------------- */
+
+export { Menu };
+export type { MenuProps };

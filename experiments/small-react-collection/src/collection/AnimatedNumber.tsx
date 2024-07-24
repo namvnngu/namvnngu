@@ -1,10 +1,17 @@
 import React from "react";
+
 import { Button } from "../components/Button";
 
+/* ------------------------------------------------------------------------- */
+
+const APP_NAME = "AnimatedNumberApp";
+
 const INCREMENTS = [0.01, 0.1, 1, 10, 100, 999, 1234.56];
+
 const COMMON_ANIMATED_NUMBER_DEMO_CLASS_NAME =
   "flex items-center gap-4 min-w-[625px]";
-export function AnimatedNumberApp() {
+
+const AnimatedNumberApp: React.FC = () => {
   const [number, setNumber] = React.useState(122.21);
   return (
     <div className="flex flex-col gap-4">
@@ -33,19 +40,25 @@ export function AnimatedNumberApp() {
       </div>
     </div>
   );
-}
+};
 
-/*****************************************************************************/
+AnimatedNumberApp.displayName = APP_NAME;
+
+/* ------------------------------------------------------------------------- */
+
+const ANIMATED_NUMBER_NAME = "AnimatedNumber";
 
 const decimalNumberFormatter = new Intl.NumberFormat(undefined, {
   style: "decimal",
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 });
+
 function generateTwoDecimalPlacesFloor(num: number) {
   return decimalNumberFormatter.format(Math.floor(num * 100) / 100);
 }
-function AnimatedNumber(props: { number: number }) {
+
+const AnimatedNumber: React.FC<{ number: number }> = (props) => {
   return (
     <div className="flex items-center">
       {generateTwoDecimalPlacesFloor(props.number)
@@ -55,16 +68,21 @@ function AnimatedNumber(props: { number: number }) {
         ))}
     </div>
   );
-}
+};
 
-/*****************************************************************************/
+AnimatedNumber.displayName = ANIMATED_NUMBER_NAME;
+
+/* ------------------------------------------------------------------------- */
+
+const ANIMATED_DIGIT_NAME = "AnimatedDigit";
 
 const commonAnimatedDigitStyle = {
   lineHeight: 1,
   fontSize: 48,
   height: 48,
 };
-function AnimatedDigit(props: { digit: string }) {
+
+const AnimatedDigit: React.FC<{ digit: string }> = (props) => {
   if (props.digit === ".") {
     return <span style={commonAnimatedDigitStyle}>.</span>;
   }
@@ -89,4 +107,10 @@ function AnimatedDigit(props: { digit: string }) {
       </div>
     </span>
   );
-}
+};
+
+AnimatedDigit.displayName = ANIMATED_DIGIT_NAME;
+
+/* ------------------------------------------------------------------------- */
+
+export { AnimatedNumberApp };
