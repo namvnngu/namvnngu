@@ -1,4 +1,5 @@
 import { AnimatedNumberApp } from "./AnimatedNumber";
+import { CheckUseValueRef } from "./CheckUseValueRef";
 import { RerenderParentChildren } from "./RerenderParentChildren";
 import { RerenderContextConsumersFromSameContext } from "./RerenderContextConsumersFromSameContext";
 import { RerenderContextConsumersFromDifferentContexts } from "./RerenderContextConsumersFromDifferentContexts";
@@ -22,5 +23,9 @@ export const COLLECTION: Array<{
   {
     name: "Re-render: Parent-children relationship",
     component: RerenderParentChildren,
+  },
+  {
+    name: "Check useValueRef",
+    component: CheckUseValueRef,
   },
 ];
