@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { v4 as uuid } from "uuid";
 
 import { Alert } from "./Alert";
-import { COLORS } from "../constants";
 import { getRandomColor } from "../utils";
 import type { Color, PartialSome } from "../types";
 
@@ -102,7 +101,7 @@ const Console: React.FC<ConsoleProps> = (props) => {
       title="Logs"
       onClose={() => props.onLogs([])}
       desc={
-        <ul>
+        <ul className="max-h-[80vh] overflow-y-auto scrollbar">
           {Object.values(props.logs).map((l) => (
             <li key={l.id} className={COLOR_CLASS_NAMES[l.color]}>
               {l.message}
