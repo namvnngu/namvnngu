@@ -32,7 +32,7 @@ const Alert: React.FC<AlertProps> = (props) => {
           </strong>
 
           {props.desc ? (
-            <p className="mt-1 text-sm text-gray-700">{props.desc}</p>
+            <div className="mt-1 text-sm text-gray-700">{props.desc}</div>
           ) : null}
         </div>
         <Close onClick={props.onClose} />

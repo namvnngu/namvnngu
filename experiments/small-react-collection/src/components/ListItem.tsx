@@ -11,14 +11,15 @@ type ListItemProps = React.ComponentPropsWithoutRef<"li"> & {
 };
 
 const ListItem: React.FC<ListItemProps> = (props) => {
+  const { active, ...rest } = props;
   const className = classes(
-    props.active
+    active
       ? "block cursor-pointer rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
       : "block cursor-pointer rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700",
     props.className,
   );
   return (
-    <li {...props} className={className}>
+    <li {...rest} className={className}>
       {props.children}
     </li>
   );

@@ -5,15 +5,11 @@ import { v4 as uuid } from "uuid";
 import { Alert } from "./Alert";
 import { COLORS } from "../constants";
 import { getRandomColor } from "../utils";
-import type { Color } from "../types";
+import type { Color, PartialSome } from "../types";
 
 /* ------------------------------------------------------------------------- */
 
 const LOGGER_NAME = "Logger";
-
-const LoggerContext = React.createContext<
-  { log: (message: string) => void } | undefined
->(undefined);
 
 type Log = {
   id: string;
@@ -21,18 +17,36 @@ type Log = {
   color: Color;
 };
 
+type LoggerContextValue = {
+  raise: (log: PartialSome<Log, "id" | "color">) => void;
+  clean: () => void;
+};
+
+const LoggerContext = React.createContext<LoggerContextValue | undefined>(
+  undefined,
+);
+
 type LoggerProps = React.PropsWithChildren;
 
 const Logger: React.FC<LoggerProps> = (props) => {
   const [logs, setLogs] = React.useState<Log[]>([]);
 
-  const log = React.useCallback((message: string) => {
-    const id = uuid();
-    const color = getRandomColor();
-    setLogs((current) => [...current, { id, message, color }]);
+  const raise = React.useCallback<LoggerContextValue["raise"]>((log) => {
+    setLogs((current) => [
+      ...current,
+      {
+        id: log.id ?? uuid(),
+        message: log.message,
+        color: log.color ?? getRandomColor(),
+      },
+    ]);
   }, []);
 
-  const value = React.useMemo(() => ({ log }), [log]);
+  const clean = React.useCallback<LoggerContextValue["clean"]>(() => {
+    setLogs([]);
+  }, []);
+
+  const value = React.useMemo(() => ({ raise, clean }), [raise, clean]);
 
   return (
     <LoggerContext.Provider value={value}>
@@ -46,11 +60,32 @@ Logger.displayName = LOGGER_NAME;
 
 /* ------------------------------------------------------------------------- */
 
-const CONSOLE_NAME = "Console";
+const COLOR_CLASS_NAMES: Record<Color, string> = {
+  slate: "text-slate-700",
+  gray: "text-gray-700",
+  zinc: "text-zinc-700",
+  neutral: "text-neutral-700",
+  stone: "text-stone-700",
+  red: "text-red-700",
+  orange: "text-orange-700",
+  amber: "text-amber-700",
+  yellow: "text-yellow-700",
+  lime: "text-lime-700",
+  green: "text-green-700",
+  emerald: "text-emerald-700",
+  teal: "text-teal-700",
+  cyan: "text-cyan-700",
+  sky: "text-sky-700",
+  blue: "text-blue-700",
+  indigo: "text-indigo-700",
+  violet: "text-violet-700",
+  purple: "text-purple-700",
+  fuchsia: "text-fuchsia-700",
+  pink: "text-pink-700",
+  rose: "text-rose-700",
+};
 
-const COLOR_CLASS_NAMES = Object.fromEntries(
-  COLORS.map((c) => [c, `text-${c}-700`]),
-) as Record<Color, string>;
+const CONSOLE_NAME = "Console";
 
 type ConsoleProps = {
   logs: Log[];
@@ -84,12 +119,12 @@ Console.displayName = CONSOLE_NAME;
 
 /* ------------------------------------------------------------------------- */
 
-function useLog(componentName: string): (message: string) => void {
+function useLog(componentName: string): LoggerContextValue {
   const context = React.useContext(LoggerContext);
   if (context === undefined) {
     throw new Error(`${componentName} must be used within Logger`);
   }
-  return context.log;
+  return context;
 }
 
 /* ------------------------------------------------------------------------- */

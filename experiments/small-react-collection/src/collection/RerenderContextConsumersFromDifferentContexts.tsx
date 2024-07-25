@@ -56,7 +56,7 @@ const ButtonA: React.FC = () => {
   const log = useLog(BUTTON_A_NAME);
 
   React.useEffect(() => {
-    log("Button A re-render");
+    log.raise({ message: "Button A re-render", color: "violet" });
   });
 
   return <Button onClick={() => setCount((c) => ++c)}>A: {count}</Button>;
@@ -98,7 +98,7 @@ const ButtonB: React.FC = () => {
   const log = useLog(BUTTON_B_NAME);
 
   React.useEffect(() => {
-    log("Button B re-render");
+    log.raise({ message: "Button B re-render", color: "sky" });
   });
 
   return <Button onClick={() => setCount((c) => ++c)}>B: {count}</Button>;

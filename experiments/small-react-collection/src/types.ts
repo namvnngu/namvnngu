@@ -4,4 +4,6 @@ type Theme = "light" | "dark";
 
 type Color = (typeof COLORS)[number];
 
-export type { Theme, Color };
+type PartialSome<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
+
+export type { Theme, Color, PartialSome };
