@@ -47,7 +47,7 @@ const Child: React.FC = () => {
   const log = useLog(CHILD_NAME);
 
   React.useEffect(() => {
-    log.raise("Child re-rendder");
+    log.raise({ message: "Child re-rendder", color: "pink" });
   });
 
   return <div>Child</div>;
