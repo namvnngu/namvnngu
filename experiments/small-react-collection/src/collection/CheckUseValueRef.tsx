@@ -13,11 +13,11 @@ const CheckUseValueRef: React.FC = () => {
   const log = useLog(APP_NAME);
 
   React.useEffect(() => {
-    log.raise({ message: `useEffect runs: ${countRef.current}`, color: "red" });
+    log.raise({ message: `useEffect runs with ${countRef.current}`, color: "red" });
   }, [countRef, log]);
 
   React.useEffect(() => {
-    log.raise({ message: `re-render: ${count}`, color: "green" });
+    log.raise({ message: `re-render with ${count}`, color: "green" });
   });
 
   return (

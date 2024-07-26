@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { v4 as uuid } from "uuid";
 
 import { Alert } from "./Alert";
-import { getRandomColor } from "../utils";
+import { formatDate, getRandomColor } from "../utils";
 import type { Color, PartialSome } from "../types";
 
 /* ------------------------------------------------------------------------- */
@@ -14,10 +14,11 @@ type Log = {
   id: string;
   message: string;
   color: Color;
+  time: string;
 };
 
 type LoggerContextValue = {
-  raise: (log: PartialSome<Log, "id" | "color">) => void;
+  raise: (log: Omit<PartialSome<Log, "id" | "color">, "time">) => void;
   clean: () => void;
 };
 
@@ -37,6 +38,7 @@ const Logger: React.FC<LoggerProps> = (props) => {
         id: log.id ?? uuid(),
         message: log.message,
         color: log.color ?? getRandomColor(),
+        time: formatDate(new Date(), "en-AU"),
       },
     ]);
   }, []);
@@ -104,7 +106,7 @@ const Console: React.FC<ConsoleProps> = (props) => {
         <ul className="max-h-[80vh] overflow-y-auto scrollbar">
           {Object.values(props.logs).map((l) => (
             <li key={l.id} className={COLOR_CLASS_NAMES[l.color]}>
-              {l.message}
+              [{l.time}]: {l.message}
             </li>
           ))}
         </ul>

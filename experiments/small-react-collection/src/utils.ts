@@ -25,4 +25,17 @@ function getRandomColor(): Color {
   return COLORS[Math.floor(Math.random() * COLORS.length)];
 }
 
-export { classes, getRandomColor };
+function formatDate(date: Date, locale: string): string {
+  return date.toLocaleString(locale, {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "numeric",
+    hour12: false,
+    minute: "numeric",
+    second: "numeric",
+    timeZoneName: "shortOffset",
+  });
+}
+
+export { classes, getRandomColor, formatDate };
