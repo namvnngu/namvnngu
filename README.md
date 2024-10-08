@@ -1,6 +1,6 @@
 # Hi, I'm Nam ٩( ᐛ )و
 
-- 👨‍💻 A nerdy guy with a bit of programming knowledge trying his best.
+- 👨‍💻 A nerdy guy with his limited programming knowledge trying his best.
 - 📟 A Neovim/Vim enthusiast.
 - 👔 At work, I use [React](https://react.dev), [Typescript](https://www.typescriptlang.org) and a bit [.NET](https://dotnet.microsoft.com).
 - 🏡 At home, I'm learning [C](https://en.wikipedia.org/wiki/C_(programming_language)) and [Computer Graphics](https://en.wikipedia.org/wiki/Computer_graphics).
