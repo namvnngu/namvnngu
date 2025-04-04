@@ -1,1 +1,2 @@
-Hi ʕ•ᴥ•ʔﾉ♡, I'm Nam! Welcome to my programming adventures! ٩( ᐛ )و
+Hi there ʕ•ᴥ•ʔﾉ
+I'm Nam! Welcome to my programming adventures! ᕕʕ •ᴥ•ʔ୨
